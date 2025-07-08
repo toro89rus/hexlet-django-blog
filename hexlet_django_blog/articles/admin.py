@@ -13,4 +13,3 @@ class ArticleAdmin(admin.ModelAdmin):
     )
     search_fields = ["name", "body"]
     list_filter = (("created_at", DateFieldListFilter),)
-
