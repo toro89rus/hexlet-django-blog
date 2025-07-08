@@ -1,6 +1,4 @@
-from django.shortcuts import redirect, render
-from django.urls import reverse
-from django.views.generic.base import TemplateView
+from django.shortcuts import render
 
 
 def index(request):
