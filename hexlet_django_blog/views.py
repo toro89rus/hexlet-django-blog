@@ -4,9 +4,7 @@ from django.views.generic.base import TemplateView
 
 
 def index(request):
-    return redirect(
-        reverse("articles:article", kwargs={"tags": "python", "article_id": 42})
-    )
+    return render(request, "index.html")
 
 
 def about(request):
