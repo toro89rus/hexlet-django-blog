@@ -1,7 +1,8 @@
-from django.shortcuts import render
 from django.views.generic import ListView, DetailView, CreateView
 from hexlet_django_blog.articles.models import Article
+from hexlet_django_blog.articles.forms import ArticleForm
 from django.urls import reverse_lazy
+from django.contrib.messages.views import SuccessMessageMixin
 
 
 class IndexView(ListView):
@@ -17,8 +18,9 @@ class ArticleView(DetailView):
     context_object_name = "article"
 
 
-class ArticleFormCreateView(CreateView):
+class ArticleFormCreateView(SuccessMessageMixin, CreateView):
     model = Article
-    fields = ["name", "body"]
+    form_class = ArticleForm
     template_name = "articles/create.html"
     success_url = reverse_lazy("articles:articles_index")
+    success_message = "Статья успешно добавлена"
